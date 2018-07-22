@@ -32,16 +32,12 @@ windowResized = () => {
     resizeCanvas(windowWidth, windowHeight);
 };
 
-// push shape in keys array
-mouseClicked = () => {
-    keys.push(new Key(mouseX, mouseY, 100, 100));
-};
-
 keyTyped = () => {
     let position = new KeyMapper().getPosition(key);
 
     if (Number.isInteger(position)) {
-        keys.push(new Key(((windowWidth / 13) * (position + 1)) + random(-windowWidth / 20, windowWidth / 20),
+        keys.push(new Key(key,
+            ((windowWidth / 13) * (position + 1)) + random(-windowWidth / 20, windowWidth / 20),
             windowHeight + 150,
             100,
             100));

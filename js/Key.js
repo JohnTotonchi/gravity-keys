@@ -1,5 +1,6 @@
 class Key {
-    constructor(x, y, w, h) {
+    constructor(key, x, y, w, h) {
+        this.key = key;
         this.w = w;
         this.h = h;
         this.option = {
@@ -29,6 +30,10 @@ class Key {
         rotate(this.body.angle);
         rectMode(CENTER);
         rect(0, 0, this.w, this.h);
+        fill(0);
+        textAlign(CENTER);
+        textSize(60);
+        text(this.key.toUpperCase(), -5, 20);
         pop()
     };
 }
