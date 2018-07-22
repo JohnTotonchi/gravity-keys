@@ -41,6 +41,12 @@ keyTyped = () => {
             windowHeight + 150,
             100,
             100));
+    } else {
+        keys.push(new Key(key,
+            random(windowWidth / 13, windowWidth - windowWidth / 13),
+            windowHeight + 150,
+            100,
+            100));
     }
 };
 

@@ -53,6 +53,25 @@ class KeyMapper {
         this.map.set("=", 10);
         this.map.set("]", 10);
         this.map.set("\\", 10);
+
+        this.map.set("`", 0);
+        this.map.set("ё", 0);
+        this.map.set("~", 0);
+        this.map.set("!", 0);
+        this.map.set("@", 1);
+        this.map.set("#", 2);
+        this.map.set("$", 3);
+        this.map.set("%", 4);
+        this.map.set("^", 5);
+        this.map.set("&", 6);
+        this.map.set("*", 7);
+        this.map.set("(", 8);
+        this.map.set(")", 9);
+        this.map.set("_", 10);
+        this.map.set("+", 10);
+        this.map.set("|", 10);
+        this.map.set("?", 10);
+        this.map.set("/", 10);
     }
 
     getPosition(key) {
