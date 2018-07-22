@@ -8463,7 +8463,7 @@ p5.prototype.brightness = function(c) {
  * <code>
  * var c = color(255, 204, 0);  // Define color 'c'
  * fill(c);  // Use color variable 'c' as fill color
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * rect(30, 20, 55, 55);  // Draw rectangle
  * </code>
  * </div>
@@ -8472,7 +8472,7 @@ p5.prototype.brightness = function(c) {
  * <code>
  * var c = color(255, 204, 0);  // Define color 'c'
  * fill(c);  // Use color variable 'c' as fill color
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * ellipse(25, 25, 80, 80);  // Draw left circle
  *
  * // Using only one value with color()
@@ -8488,7 +8488,7 @@ p5.prototype.brightness = function(c) {
  * // Named SVG & CSS colors may be used,
  * var c = color('magenta');
  * fill(c);  // Use 'c' as fill color
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * rect(20, 20, 60, 60);  // Draw rectangle
  * </code>
  * </div>
@@ -8496,7 +8496,7 @@ p5.prototype.brightness = function(c) {
  * <div>
  * <code>
  * // as can hex color codes:
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * var c = color('#0f0');
  * fill(c);  // Use 'c' as fill color
  * rect(0, 10, 45, 80);  // Draw rectangle
@@ -8512,7 +8512,7 @@ p5.prototype.brightness = function(c) {
  * // RGB and RGBA color strings are also supported:
  * // these all set to the same color (solid blue)
  * var c;
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * c = color('rgb(0,0,255)');
  * fill(c); // Use 'c' as fill color
  * rect(10, 10, 35, 35);  // Draw rectangle
@@ -8536,7 +8536,7 @@ p5.prototype.brightness = function(c) {
  * // HSL color is also supported and can be specified
  * // by value
  * var c;
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * c = color('hsl(160, 100%, 50%)');
  * fill(c);  // Use 'c' as fill color
  * rect(0, 10, 45, 80);  // Draw rectangle
@@ -8552,7 +8552,7 @@ p5.prototype.brightness = function(c) {
  * // HSB color is also supported and can be specified
  * // by value
  * var c;
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  * c = color('hsb(160, 100%, 50%)');
  * fill(c);  // Use 'c' as fill color
  * rect(0, 10, 45, 80);  // Draw rectangle
@@ -8566,7 +8566,7 @@ p5.prototype.brightness = function(c) {
  * <div>
  * <code>
  * var c;  // Declare color 'c'
- * noStroke();  // Don't draw a stroke around shapes
+ * noStroke();  // Don't draw a stroke around keys
  *
  * // If no colorMode is specified, then the
  * // default of RGB with scale of 0-255 is used.
@@ -9806,8 +9806,8 @@ p5.prototype.colorMode = function() {
 };
 
 /**
- * Sets the color used to fill shapes. For example, if you run
- * fill(204, 102, 0), all subsequent shapes will be filled with orange. This
+ * Sets the color used to fill keys. For example, if you run
+ * fill(204, 102, 0), all subsequent keys will be filled with orange. This
  * color is either specified in terms of the RGB or HSB color depending on
  * the current colorMode(). (The default color space is RGB, with each value
  * in the range from 0 to 255).
@@ -9985,7 +9985,7 @@ p5.prototype.noStroke = function() {
 };
 
 /**
- * Sets the color used to draw lines and borders around shapes. This color
+ * Sets the color used to draw lines and borders around keys. This color
  * is either specified in terms of the RGB or HSB color depending on the
  * current colorMode() (the default color space is RGB, with each value in
  * the range from 0 to 255).
@@ -10667,7 +10667,7 @@ var constants = _dereq_('./constants');
  * <br><br>
  * ellipseMode(RADIUS) also uses the first two parameters of ellipse() as
  * the shape's center point, but uses the third and fourth parameters to
- * specify half of the shapes's width and height.
+ * specify half of the keys's width and height.
  * <br><br>
  * ellipseMode(CORNER) interprets the first two parameters of ellipse() as
  * the upper-left corner of the shape, while the third and fourth parameters
@@ -10769,7 +10769,7 @@ p5.prototype.noSmooth = function() {
  * <br><br>
  * rectMode(RADIUS) also uses the first two parameters of rect() as the
  * shape's center point, but uses the third and fourth parameters to specify
- * half of the shapes's width and height.
+ * half of the keys's width and height.
  * <br><br>
  * The parameter must be written in ALL CAPS because Javascript is a
  * case-sensitive language.
@@ -10946,7 +10946,7 @@ p5.prototype.strokeJoin = function(join) {
 
 /**
  * Sets the width of the stroke used for lines, points, and the border
- * around shapes. All widths are set in units of pixels.
+ * around keys. All widths are set in units of pixels.
  *
  * @method strokeWeight
  * @param  {Number} weight the weight (in pixels) of the stroke
@@ -16992,17 +16992,17 @@ var isFirstContour = true;
 
 /**
  * Use the beginContour() and endContour() functions to create negative
- * shapes within shapes such as the center of the letter 'O'. beginContour()
+ * keys within keys such as the center of the letter 'O'. beginContour()
  * begins recording vertices for the shape and endContour() stops recording.
  * The vertices that define a negative shape must "wind" in the opposite
  * direction from the exterior shape. First draw vertices for the exterior
- * clockwise order, then for internal shapes, draw vertices
+ * clockwise order, then for internal keys, draw vertices
  * shape in counter-clockwise.
  * <br><br>
  * These functions can only be used within a beginShape()/endShape() pair and
  * transformations such as translate(), rotate(), and scale() do not work
  * within a beginContour()/endContour() pair. It is also not possible to use
- * other shapes, such as ellipse() or rect() within.
+ * other keys, such as ellipse() or rect() within.
  *
  * @method beginContour
  * @return {Object} the p5 object
@@ -17042,7 +17042,7 @@ p5.prototype.beginContour = function() {
  * Using the beginShape() and endShape() functions allow creating more
  * complex forms. beginShape() begins recording vertices for a shape and
  * endShape() stops recording. The value of the kind parameter tells it which
- * types of shapes to create from the provided vertices. With no mode
+ * types of keys to create from the provided vertices. With no mode
  * specified, the shape can be any irregular polygon.
  * <br><br>
  * The parameters available for beginShape() are POINTS, LINES, TRIANGLES,
@@ -17052,7 +17052,7 @@ p5.prototype.beginContour = function() {
  * current stroke color and filled with the fill color.
  * <br><br>
  * Transformations such as translate(), rotate(), and scale() do not work
- * within beginShape(). It is also not possible to use other shapes, such as
+ * within beginShape(). It is also not possible to use other keys, such as
  * ellipse() or rect() within beginShape().
  *
  * @method beginShape
@@ -17206,10 +17206,10 @@ p5.prototype.beginContour = function() {
  * 2 horizontal black lines. In the top-right and bottom-right of canvas.
  * 3 line shape with horizontal on top, vertical in middle and horizontal bottom.
  * square line shape in middle-right of canvas.
- * 2 white triangle shapes mid-right canvas. left one pointing up and right down.
+ * 2 white triangle keys mid-right canvas. left one pointing up and right down.
  * 5 horizontal interlocking and alternating white triangles in mid-right canvas.
  * 4 interlocking white triangles in 45 degree rotated square-shape.
- * 2 white rectangle shapes in mid-right canvas. Both 20x55.
+ * 2 white rectangle keys in mid-right canvas. Both 20x55.
  * 3 side-by-side white rectangles center rect is smaller in mid-right canvas.
  * Thick white l-shape with black outline mid-top-left of canvas.
  *
@@ -17344,17 +17344,17 @@ p5.prototype.curveVertex = function(x,y) {
 
 /**
  * Use the beginContour() and endContour() functions to create negative
- * shapes within shapes such as the center of the letter 'O'. beginContour()
+ * keys within keys such as the center of the letter 'O'. beginContour()
  * begins recording vertices for the shape and endContour() stops recording.
  * The vertices that define a negative shape must "wind" in the opposite
  * direction from the exterior shape. First draw vertices for the exterior
- * clockwise order, then for internal shapes, draw vertices
+ * clockwise order, then for internal keys, draw vertices
  * shape in counter-clockwise.
  * <br><br>
  * These functions can only be used within a beginShape()/endShape() pair and
  * transformations such as translate(), rotate(), and scale() do not work
  * within a beginContour()/endContour() pair. It is also not possible to use
- * other shapes, such as ellipse() or rect() within.
+ * other keys, such as ellipse() or rect() within.
  *
  * @method endContour
  * @return {Object} the p5 object
@@ -17548,7 +17548,7 @@ p5.prototype.quadraticVertex = function(cx, cy, x3, y3) {
 };
 
 /**
- * All shapes are constructed by connecting a series of vertices. vertex()
+ * All keys are constructed by connecting a series of vertices. vertex()
  * is used to specify the vertex coordinates for points, lines, triangles,
  * quads, and polygons. It is used exclusively within the beginShape() and
  * endShape() functions.
@@ -26863,7 +26863,7 @@ var perlin; // will be initialized lazily by noise() or noiseSeed()
  * succession of numbers compared to the standard <b>random()</b> function.
  * It was invented by Ken Perlin in the 1980s and been used since in
  * graphical applications to produce procedural textures, natural motion,
- * shapes, terrains etc.<br /><br /> The main difference to the
+ * keys, terrains etc.<br /><br /> The main difference to the
  * <b>random()</b> function is that Perlin noise is defined in an infinite
  * n-dimensional space where each pair of coordinates corresponds to a
  * fixed semi-random value (fixed only for the lifespan of the program; see
@@ -33479,7 +33479,7 @@ module.exports = p5.Matrix;
 },{"../core/constants":41,"../core/core":42,"../math/polargeometry":72}],89:[function(_dereq_,module,exports){
 /**
  * Welcome to RendererGL Immediate Mode.
- * Immediate mode is used for drawing custom shapes
+ * Immediate mode is used for drawing custom keys
  * from a set of vertices.  Immediate Mode is activated
  * when you call beginShape() & de-activated when you call endShape().
  * Immediate mode is a style of programming borrowed
@@ -33497,7 +33497,7 @@ var constants = _dereq_('../core/constants');
 
 /**
  * Begin shape drawing.  This is a helpful way of generating
- * custom shapes quickly.  However in WEBGL mode, application
+ * custom keys quickly.  However in WEBGL mode, application
  * performance will likely drop as a result of too many calls to
  * beginShape() / endShape().  As a high performance alternative,
  * please use p5.js geometry primitives.
@@ -34169,7 +34169,7 @@ p5.RendererGL.prototype.stroke = function(r, g, b, a) {
 p5.RendererGL.prototype._strokeCheck = function(){
   if(this.drawMode === 'stroke'){
     throw new Error(
-      'stroke for shapes in 3D not yet implemented, use fill for now :('
+      'stroke for keys in 3D not yet implemented, use fill for now :('
     );
   }
 };

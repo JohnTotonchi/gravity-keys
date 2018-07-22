@@ -1,8 +1,7 @@
 let world;
 let engine;
-let shape;
-let ground;
-let shape_holder = [];
+// let ground;
+let keys = [];
 
 setup = () => {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -20,17 +19,31 @@ setup = () => {
 draw = () => {
     background(255);
 
-    shape_holder.forEach((shape) => {
-        shape.show();
-    })
+    for (let i in keys) {
+        keys[i].show();
+        // if (keys[i].body.position.y > windowHeight * 2) {
+        //     keys.splice(i);
+        // }
+    }
 };
 
 windowResized = () => {
     resizeCanvas(windowWidth, windowHeight);
 };
 
-// push shape in shape_holder array
+// push shape in keys array
 mouseClicked = () => {
-    shape_holder.push(new Key(mouseX, mouseY, 100, 100));
+    keys.push(new Key(mouseX, mouseY, 100, 100));
+};
+
+keyTyped = () => {
+    let position = new KeyMapper().getPosition(key);
+
+    if (Number.isInteger(position)) {
+        keys.push(new Key(((windowWidth / 13) * (position + 1)) + random(-windowWidth / 10, windowWidth / 10),
+            windowHeight + 150,
+            100,
+            100));
+    }
 };
 
