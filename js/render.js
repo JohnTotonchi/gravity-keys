@@ -19,11 +19,12 @@ setup = () => {
 draw = () => {
     background(255);
 
-    for (let i in keys) {
+    for (let i = keys.length - 1; i >= 0; i--) {
         keys[i].show();
-        // if (keys[i].body.position.y > windowHeight * 2) {
-        //     keys.splice(i);
-        // }
+        if (keys[i].body.position.y > windowHeight * 2) {
+            Matter.Composite.remove(world, keys[i].body);
+            keys.splice(i, 1);
+        }
     }
 };
 
@@ -40,7 +41,7 @@ keyTyped = () => {
     let position = new KeyMapper().getPosition(key);
 
     if (Number.isInteger(position)) {
-        keys.push(new Key(((windowWidth / 13) * (position + 1)) + random(-windowWidth / 10, windowWidth / 10),
+        keys.push(new Key(((windowWidth / 13) * (position + 1)) + random(-windowWidth / 20, windowWidth / 20),
             windowHeight + 150,
             100,
             100));

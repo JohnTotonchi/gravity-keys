@@ -15,7 +15,7 @@ class Key {
             x: random(-0.1, 0.1),
             y: -1.2
         });
-        Matter.Body.setAngularVelocity(this.body, random(-0.1, 0.1));
+        Matter.Body.setAngularVelocity(this.body, random(-0.2, 0.2));
         Matter.World.add(world, this.body);
 
     }
