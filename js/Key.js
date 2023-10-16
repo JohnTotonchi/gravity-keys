@@ -28,7 +28,7 @@ class Key {
         fill(240);
         strokeWeight(4);
         stroke(0);
-        rotate(this.body.angle);
+        //rotate(this.body.angle);
         rectMode(CENTER);
         rect(0, 0, this.w, this.h, 8);
         fill(0);
